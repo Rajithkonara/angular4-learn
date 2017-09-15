@@ -48,7 +48,15 @@
 
       <p appBasicHighlight>Style ME </p>
       <p appBetterHighlight [defaultColor]="'yellow'" highlightColor="red">With better Directive</p>
-      
+
+      <div [ngSwitch]="value">
+          <p *ngSwitchCase="5">Value is 5</p>
+          <p *ngSwitchCase="10">Value is 10</p>
+          <p *ngSwitchCase="20">Value is 20</p>
+          <p *ngSwitchCase="100">Value is 100</p>
+          <p *ngSwitchDefault>Value is Default</p>
+      </div>
+
       <ng-template [ngIf]="onlyOdd">
         <p>Only odd</p>
       </ng-template>
