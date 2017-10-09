@@ -13,7 +13,7 @@ export class ServerComponent implements OnInit {
 
   constructor(private serversService: ServersService, 
     private router: Router,
-    private route: ActivatedRoute) { }
+    private route: ActivatedRoute,) { }
 
   ngOnInit() {
       // + converts string to a number
@@ -29,6 +29,11 @@ export class ServerComponent implements OnInit {
 
   onReload () {
     // this.router.navigate(['servers'], {relativeTo: this.route});
+  }
+
+  onEdit () {
+    //relative path
+    this.router.navigate(['edit'], {relativeTo: this.route});
   }
 
 }
