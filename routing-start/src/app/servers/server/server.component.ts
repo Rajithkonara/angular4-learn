@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import { ServersService } from '../servers.service';
-import { Router, ActivatedRoute, Params } from '@angular/router';
+import { Router, ActivatedRoute, Params, Data } from '@angular/router';
 
 @Component({
   selector: 'app-server',
@@ -16,15 +16,24 @@ export class ServerComponent implements OnInit {
     private route: ActivatedRoute,) { }
 
   ngOnInit() {
-      // + converts string to a number
-    const id = +this.route.snapshot.params['id'];
-    this.server = this.serversService.getServer(id);
-    this.route.params 
+
+    this.route.data
       .subscribe(
-        (params: Params) => {
-           this.server = this.serversService.getServer(+params['id']);
+        (data: Data) => {
+          // data['server'] name should be match to child route in app-routing.module resolve: {server: ServerResolver}
+          this.server = data['server']
         }
-      );
+      ); 
+
+    // + converts string to a number
+    // const id = +this.route.snapshot.params['id'];
+    // this.server = this.serversService.getServer(id);
+    // this.route.params 
+    //   .subscribe(
+    //     (params: Params) => {
+    //        this.server = this.serversService.getServer(+params['id']);
+    //     }
+    //   );
   }
 
   onReload () {
