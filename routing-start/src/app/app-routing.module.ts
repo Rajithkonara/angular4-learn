@@ -9,6 +9,7 @@ import { EditServerComponent } from 'app/servers/edit-server/edit-server.compone
 import { PageNotFoundComponent } from 'app/page-not-found/page-not-found.component';
 import { AuthGurd } from 'app/auth-gurd.service';
 import { CanDeactivateGurd } from 'app/servers/edit-server/can-deactivate-gurd.service';
+import { ErrorPageComponent } from 'app/error-page/error-page.component';
 
 const appRoutes: Routes = [
     { path: '', component: HomeComponent },
@@ -18,12 +19,13 @@ const appRoutes: Routes = [
     { path: 'servers',
     //  canActivate: [AuthGurd],
      canActivateChild: [AuthGurd],
-     component: ServersComponent,
+     component: ServersComponent, 
      children: [
       { path: ':id', component: ServerComponent }, 
       { path: ':id/edit', component: EditServerComponent, canDeactivate: [CanDeactivateGurd] }
     ]}, 
-    { path: 'not-found', component: PageNotFoundComponent },  
+    // { path: 'not-found', component: PageNotFoundComponent },  
+    { path: 'not-found', component: ErrorPageComponent, data: {message: 'Page Not Found!'} },  
     { path: '**', redirectTo: '/not-found' }
   ];
   
