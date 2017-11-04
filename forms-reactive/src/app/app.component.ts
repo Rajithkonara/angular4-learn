@@ -28,10 +28,26 @@ export class AppComponent implements OnInit{
     // this.signUpForm.statusChanges.subscribe(
     //   (status) =>  console.log(status)
     // );
+
+    this.signUpForm.setValue({
+      'userData': {
+        'username': 'RK',
+        'email': 'rk@test.com'
+      }, 
+      'gender': 'male',
+      'hobbies': []
+    });
+
+    this.signUpForm.patchValue({
+      'userData': {
+        'username': 'Rajith'
+      }
+    });
   }
 
   onSubmit() {
     console.log(this.signUpForm);
+    this.signUpForm.reset();
   }
 
   onAddHobby() {
