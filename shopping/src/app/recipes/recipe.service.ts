@@ -16,9 +16,9 @@ export class RecipeService {
         new Ingredient('Meat', 1),
         new Ingredient('French Fries', 20),        
     ]),
-    new Recipe('Butter Cuttle Fish', 
+    new Recipe('Chines Roll', 
     'Righ Now ............',
-    'https://cdn.pixabay.com/photo/2014/12/21/23/28/recipe-575434_960_720.png',
+    'https://images.pexels.com/photos/461198/pexels-photo-461198.jpeg',
     [
         new Ingredient('Buns', 2),
         new Ingredient('Meat', 1),        
