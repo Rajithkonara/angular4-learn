@@ -39,4 +39,13 @@ export class ServerService {
         )
         ;
     }
+
+    getAppName() {
+      return this.http.get('')
+        .map(
+        (response: Response) => {
+          return response.json();
+         }
+      );
+    }
 } 
