@@ -1,6 +1,8 @@
+import { error } from 'selenium-webdriver';
 import { Injectable } from '@angular/core';
 import { Http, Headers, Response } from '@angular/http';
 import 'rxjs/Rx';
+import { Observable } from 'rxjs/Observable';
 
 @Injectable() 
 export class ServerService {
@@ -25,10 +27,16 @@ export class ServerService {
           (response: Response) => {
             const data = response.json();
             for (const server of data) {
-              server.name = 'FETCHED_' + server.name;
+              server.name = 'FETCHED_' + server.name
             } 
             return data;
           }
-        );
+        ).catch(
+          (error: Response) => {
+            console.log(error);
+            return Observable.throw('something went wrong');
+          }
+        )
+        ;
     }
 } 
