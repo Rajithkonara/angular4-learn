@@ -7,8 +7,12 @@ export class ServerService {
 
     storeServers(servers: any[]) {
       const headers = new Headers({'Content-Type': 'application/json'});
-      return this.http.post('postURL', 
+      return this.http.post('', 
       servers, 
       {headers: headers});
+    }
+
+    getServers() {
+      return this.http.get('');
     }
 } 
