@@ -6,10 +6,16 @@ export class ServerService {
     constructor(private http: Http) {}
 
     storeServers(servers: any[]) {
+      // const headers = new Headers({'Content-Type': 'application/json'});
+      // return this.http.post('', 
+      // servers, 
+      // {headers: headers});
+
       const headers = new Headers({'Content-Type': 'application/json'});
-      return this.http.post('', 
+      return this.http.put('', 
       servers, 
       {headers: headers});
+
     }
 
     getServers() {
