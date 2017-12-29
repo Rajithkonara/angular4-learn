@@ -11,13 +11,13 @@ export class DataStorageService {
 
     storeRecipes() {
        const token = this.authService.getToken()
-       return this.http.put('auth' + token, this.recipeService.getRecipes());
+       return this.http.put('url' + token, this.recipeService.getRecipes());
     }
 
     getRecipes() {
        const token = this.authService.getToken();
            
-        return this.http.get('auth' + token).
+        return this.http.get('url' + token).
             map(
                 (response: Response) => {
                     const recipes: Recipe[] = response.json();
