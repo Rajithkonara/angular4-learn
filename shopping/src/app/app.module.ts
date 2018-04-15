@@ -6,8 +6,6 @@ import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
-import { ShoppingListComponent } from './shopping-list/shopping-list.component';
-import { ShoppingEditComponent } from './shopping-list/shopping-edit/shopping-edit.component';
 import { ShoppingListService } from './shopping-list/shopping-list.service';
 import { AppRoutingModule } from './app-routing.module';
 import { DataStorageService } from './shared/data-storage.service';
@@ -17,23 +15,23 @@ import { AuthService } from './auth/auth.service';
 import { RecipeService } from './recipes/recipe.service';
 import { RecipesModule } from './recipes/recipes.modules';
 import { SharedModule } from './shared/shared.module';
+import { ShoppingListModule } from './shopping-list/shopping-list.module';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-    ShoppingListComponent,
-    ShoppingEditComponent,
     SignupComponent,
     SigninComponent
   ],
   imports: [
     BrowserModule,
-    FormsModule,
     HttpModule,
     AppRoutingModule,
     RecipesModule,
-    SharedModule
+    SharedModule,
+    FormsModule,
+    ShoppingListModule
   ],
   providers: [ShoppingListService, RecipeService, DataStorageService, AuthService, AuthGuard],
   bootstrap: [AppComponent]
